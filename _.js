@@ -19,6 +19,18 @@ const _ = {
         } else {
             return false;
         }
+    },
+    words(str) {
+        return str.split(' ');
+    },
+    pad(str, length) {
+        if(str.length >= length) {
+            return str;
+        }
+        const beginPadding = Math.floor((length - str.length)/2);
+        const endPadding = length - str.length - beginPadding;
+        const paddedString =' '.repeat(beginPadding) + str + ' '.repeat(endPadding);
+        return paddedString;
     }
 };
 
