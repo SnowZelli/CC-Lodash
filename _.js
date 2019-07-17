@@ -31,6 +31,21 @@ const _ = {
         const endPadding = length - str.length - beginPadding;
         const paddedString =' '.repeat(beginPadding) + str + ' '.repeat(endPadding);
         return paddedString;
+    },
+    has(object, key) {
+        if(object[key]) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    invert(object) {
+        let invObj = {};
+        for (let key in object) {
+            const originalValue = object[key];
+            invObj = {originalValue: key};
+        }
+        return invObj;
     }
 };
 
