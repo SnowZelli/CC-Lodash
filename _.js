@@ -41,11 +41,29 @@ const _ = {
     },
     invert(object) {
         let invObj = {};
-        for (let key in object) {
+        for(let key in object) {
             const originalValue = object[key];
             invObj = {originalValue: key};
         }
         return invObj;
+    },
+    findKey(object, predicate) {
+        for(let key in object) {
+            const value = object[key];
+            const predicateReturnValue = predicate(value);
+            if(predicateReturnValue) {
+                return key;
+            }
+        }
+        undefined;
+        return undefined;
+    },
+    drop(arr,n) {
+        if(n === undefined) {
+            n = 1;
+        }
+        let newArr = arr.slice(n);
+        return newArr;
     }
 };
 
